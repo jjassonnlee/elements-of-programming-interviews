@@ -43,10 +43,63 @@ def variant1(A):
         else:
             k += 1
 
-
 """
 Given an array A of n objects with keys that take one of four values,
 reorder the array such that all objects with the same key appear together.
 """
 def variant2(A):
+    a = 0
+    b = 0
+    c = 0
+    # make a, b, c point at diff values
+    while A[b] == A[a]:
+        b += 1
+    while A[c] == A[a] or A[c] == A[b]:
+        c += 1
+    # swap b to index 1; swap c to index -1
+    A[1], A[b] = A[b], A[1]
+    A[-1], A[c] = A[c], A[-1]
+    # make a point at first element not equal to A[0]
+    # make b point at first element not equal to A[a]
+    # make c point at first element not equal to A[-1], counting backwards
+    a = 1
+    b = 1
+    while A[b] == A[a]:
+        b += 1
+    c = len(A) - 1
+    while A[c] == A[-1]:
+        c -= 1
+
+    i = b
+    while i <= c:
+        if A[i] == A[0]:
+            A[a], A[i] = A[i], A[a]
+            A[b], A[i] = A[i], A[b]
+            a += 1
+            b += 1
+            i += 1
+        elif A[i] == A[a]:
+            A[b], A[i] = A[i], A[b]
+            b += 1
+            i += 1
+        elif A[i] == A[-1]:
+            A[i], A[c] = A[c], A[i]
+            c -= 1
+        else:
+            i += 1
+
+"""
+Given an array A of n objects with Boolean-valued keys, reorder the array
+such that objects with the key 'False' appear first.
+"""
+def variant3(A):
+    ...
+
+"""
+Given an array A of n objects with Boolean-valued keys, reorder the array
+such that objects with the key 'False' appear first.
+The relative ordering of the 'True's must be preserved
+"""
+def variant4(A):
+    ...
 
