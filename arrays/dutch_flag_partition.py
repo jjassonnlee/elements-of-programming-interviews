@@ -21,7 +21,7 @@ def dutch_flag_partition(pivot_index, A):
 Assuming that keys take one of three values, reorder the array
 so that all objects with the same key appear together.
 """
-def variant1(A):
+def dutch_flag_three(A):
     i = 0
     j = 1
     k = 0
@@ -47,7 +47,7 @@ def variant1(A):
 Given an array A of n objects with keys that take one of four values,
 reorder the array such that all objects with the same key appear together.
 """
-def variant2(A):
+def dutch_flag_four(A):
     a = 0
     b = 0
     c = 0
@@ -92,7 +92,7 @@ def variant2(A):
 Given an array A of n objects with Boolean-valued keys, reorder the array
 such that objects with the key 'False' appear first.
 """
-def variant3(A):
+def dutch_flag_boolean(A):
     ...
 
 """
@@ -100,6 +100,6 @@ Given an array A of n objects with Boolean-valued keys, reorder the array
 such that objects with the key 'False' appear first.
 The relative ordering of the 'True's must be preserved
 """
-def variant4(A):
+def dutch_flag_boolean_v2(A):
     ...
 
