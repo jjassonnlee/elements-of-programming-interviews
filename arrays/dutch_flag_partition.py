@@ -108,5 +108,16 @@ such that objects with the key 'False' appear first.
 The relative ordering of the 'True's must be preserved
 """
 def dutch_flag_boolean_v2(A):
-    ...
+    """
+    I'm using positive or negative numbers instead of booleans so it's easier to test.
+    I will sort so that negative numbers appear first, while preserving the order of 
+    the positive numbers.
+    """
+    i = len(A) - 1
+    j = len(A) - 1
+    while i >= 0:
+        if A[i] > 0:
+            A[i], A[j] = A[j], A[i]
+            j -= 1
+        i -= 1
 
