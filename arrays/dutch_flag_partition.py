@@ -93,7 +93,14 @@ Given an array A of n objects with Boolean-valued keys, reorder the array
 such that objects with the key 'False' appear first.
 """
 def dutch_flag_boolean(A):
-    ...
+    l = 0
+    r = len(A) - 1
+    while l <= r:
+        if A[l] == True:
+            A[l], A[r] = A[r], A[l]
+            r -= 1
+        elif A[l] == False:
+            l += 1
 
 """
 Given an array A of n objects with Boolean-valued keys, reorder the array
