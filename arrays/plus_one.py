@@ -27,11 +27,26 @@ def plus_one_v2(A):
         A.append(0)
     return A
 
-A = [1, 2, 9]
-plus_one(A)
-print(A)
+"""
+Take two strings of bits encoding binary numbers, and return a new
+string of bit representing the sum of the two numbers.
+"""
+def add_binary_strings(s, t):
+    # zero pad the shorter string
+    if len(s) < len(t):
+        s = (len(t) - len(s)) * '0' + s
+    if len(s) > len(t):
+        t = (len(s) - len(t)) * '0' + t
+    # iterate backwards and add the digits; carry if needed
+    ans = []
+    carry = 0
+    for i in range(len(s) - 1, -1, -1):
+        mod = int(s[i]) + int(t[i]) + carry
+        carry = mod // 2
+        mod = mod % 2
+        ans.insert(0, str(mod))
+    if carry == 1:
+        ans.insert(0, '1')
+    return "".join(ans)
 
-B = [9, 9, 9]
-plus_one(B)
-print(B)
 
