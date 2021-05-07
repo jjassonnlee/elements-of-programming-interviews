@@ -28,7 +28,8 @@ def minimum_steps(A):
 
 def minimum_steps_v2(A):
     """
-    I found this answer on leetcode that uses O(1) space instead of O(n)
+    I found this answer on leetcode that uses O(1) space instead of O(n).
+    This only works if it is guaranteed that a path exists.
     """
     l = 0
     r = A[0]

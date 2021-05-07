@@ -29,3 +29,33 @@ def delete_element(A, k):
             i += 1
     return i
 
+"""
+Given a sorted array A and a positive integer m, update A so that if x
+appears m times in A, it appears exactly min(2, m) times in A.
+Same as above, return the 1 + index of last element of 'new' array.
+"""
+def truncate_if_appear_m_times(A, m):
+    if len(A) < 1 or len(A) < m:
+        return len(A)
+
+    n = min(2, m)
+    i = 0
+    j = 1
+    while j < len(A):
+        # count number of occurrences of A[j-1]
+        count = 1
+        while j < len(A) and A[j] == A[j-1]:
+            count += 1
+            j += 1
+        # if count == m, make A[i] appear n times
+        if count == m:
+            for _ in range(n):
+                A[i] = A[j-1]
+                i += 1
+        elif count != m:
+            for _ in range(count):
+                A[i] = A[j-1]
+                i += 1
+        j += 1
+    return i
+
