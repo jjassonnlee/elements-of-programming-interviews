@@ -16,5 +16,14 @@ Given an array of integers, find the length of a longest subarray, all of whose
 entries are equal.
 """
 def length_of_longest_homogeneous_subarray(A):
-    ...
+    if len(A) < 1: return len(A)
+    count = 1
+    max_count = 0
+    for i in range(1, len(A)):
+        if A[i] == A[i-1]:
+            count += 1
+        else:
+            max_count = max(max_count, count)
+            count = 1
+    return max_count
 
