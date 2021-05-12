@@ -4,7 +4,7 @@ can be made by buying and then selling one share of that stock. There is no need
 to buy if no profit is possible.
 """
 def buy_and_sell_stock_once(A):
-    max_profit = 0.0
+    max_profit = 0
     buy_price = float('inf')
     for cur_price in A:
         max_profit = max(max_profit, cur_price - buy_price)
